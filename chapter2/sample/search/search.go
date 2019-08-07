@@ -6,6 +6,9 @@ import (
 )
 
 // A map of registered matchers for searching.
+//因为该变量未在任何空间内，所以属于包级变量
+//另外因为是小写开头，所以只能在包里访问，而不能在包外访问，相反，以大写字母开头的变量是公开的
+//make 函数用于初始化变量
 var matchers = make(map[string]Matcher)
 
 // Run performs the search logic.
