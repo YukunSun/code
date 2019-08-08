@@ -6,6 +6,7 @@ func main() {
 
 }
 
+//创建切片
 func init() {
 	//使用 make()，并初始化长度
 	slice := make([]string, 5)
@@ -20,4 +21,17 @@ func init() {
 	//使用字面量创建切片，如果在[]运算符里指定了一个值，那么创建的就是数组而不是切片。只有不指定值的时候，才会创建切片
 	slice3 := []string{"Red", "Blue", "Green", "Yellow", "Pink"}
 	fmt.Println(slice3)
+}
+
+//空切片、nil切片
+func init() {
+	//创建一个 nil 切片
+	var slice []int;
+	fmt.Println(slice) //[]
+
+	//创建一个空切片
+	slice2 := []int{}
+	fmt.Println(slice2) //[]
+	slice3 := make([]int, 0)
+	fmt.Println(slice3) //[]
 }
