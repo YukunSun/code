@@ -52,7 +52,3 @@ func init() {
 	fmt.Println(*array3[0])
 	fmt.Println(*array4[1])
 }
-
-func init() {
-	fmt.Println("map test :")
-}
