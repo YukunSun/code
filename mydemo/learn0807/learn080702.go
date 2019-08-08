@@ -29,3 +29,30 @@ func init() {
 	fmt.Println(array3) //输出示例：[0xc00008a010 0xc00008a018 <nil> <nil> <nil>]
 	fmt.Println(*array3[1])
 }
+
+func init() {
+	//赋值操作
+	var array1 [5]string
+	array2 := [5]string{"red", "blue", "yellow", "green", "pink"}
+	array1 = array2
+
+	fmt.Println(array1)
+	fmt.Println(array2)
+
+	//赋值操作2
+	var array3 [3]*string
+	array4 := [3]*string{new(string), new(string), new(string)}
+
+	*array4[0] = "a"
+	*array4[1] = "b"
+	*array4[2] = "c"
+
+	array3 = array4
+
+	fmt.Println(*array3[0])
+	fmt.Println(*array4[1])
+}
+
+func init() {
+	fmt.Println("map test :")
+}
