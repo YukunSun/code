@@ -20,6 +20,14 @@ func init() {
 	array2 := [...]int{1, 2, 4, 5, 7}
 	fmt.Println(array2)
 
+	//声明一个包含5个元素的指向 int 的数组,用整型指针初始化索引为0 和1 的数组元素
+	array3 := [5]*int{0: new(int), 1: new(int)}
+	//赋值
+	*array3[0] = 10
+	*array3[1] = 20
+
+	fmt.Println(array3) //输出示例：[0xc00008a010 0xc00008a018 <nil> <nil> <nil>]
+	fmt.Println(*array3[1])
 }
 
 func init() {
@@ -43,8 +51,4 @@ func init() {
 
 	fmt.Println(*array3[0])
 	fmt.Println(*array4[1])
-}
-
-func init() {
-	fmt.Println("map test :")
 }
