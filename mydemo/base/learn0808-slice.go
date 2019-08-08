@@ -35,3 +35,15 @@ func init() {
 	slice3 := make([]int, 0)
 	fmt.Println(slice3) //[]
 }
+
+func init() {
+	slice := []int{10, 20, 30, 40, 50}
+	//len=2,cap=4，因为 newSlice 与 slice 共享一个底层数组
+	//另，对于 slice[i,j]，len = j-i,cap = k-i
+	newSlice := slice[1:3]
+	fmt.Println(newSlice) //[20 30]
+
+	//因为是共享底层数组，所以一旦修改，则会影响到别的值
+	newSlice[1] = 2
+	fmt.Println(slice) //[10 20 2 40 50]
+}
