@@ -50,3 +50,18 @@ func init() {
 		fmt.Printf("idx:%d,value address:%X, element Address:%X \n", index, &value, &slice[index])
 	}
 }
+
+//在函数间传递切片
+func init() {
+	slice := make([]int, 1e6) //分配1000000个整型值的切片
+
+	//传递时复制的是：指针字段、长度、容量，而不是整个底层数组
+	slice2 := foo(slice)
+	fmt.Println(slice[0])
+	fmt.Println(slice2[0])
+}
+
+func foo(values []int) []int {
+	values[0] = 1
+	return values
+}
