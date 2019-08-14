@@ -13,7 +13,10 @@ func init() {
 	}
 }
 
+//使用 io.Reader 和 io.Writer 接口，写一个简单的 curl 程序
 func main() {
+	//url := "http://coderdaily.net/domain/getDomain"
+	//r, err := http.Get(url)
 	r, err := http.Get(os.Args[1])
 	if err != nil {
 		fmt.Println(err)
