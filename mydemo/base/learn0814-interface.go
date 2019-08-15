@@ -23,18 +23,32 @@ func init() {
 }
 
 //例2
-type notifier interface {
-	notify()
-}
 type user struct {
 	name  string
 	email string
 }
 
-func (u user) notify() {
+type admin struct {
+	name  string
+	email string
+}
+
+//定义一个具有通知行为的接口
+type notifier interface {
+	notify()
+}
+
+//定义接口的实现
+func (u *user) notify() {
 	fmt.Printf("sending email %s<%s>", u.name, u.email)
 }
 
+func (a *admin) notify() {
+	fmt.Printf("sending admin email %s<%s>", a.name, a.email)
+}
+
+//sendNotification 接受一个实现了notifier 接口的值并发送通知
+//任何一个实现了 notifier 接口的值都可以传入sendNotification 函数
 func sendNotification(n notifier) {
 	n.notify()
 }
@@ -42,5 +56,9 @@ func sendNotification(n notifier) {
 //例
 func init() {
 	u := user{"Bill", "bill@gmail.com"}
-	sendNotification(u)
+	sendNotification(&u)
+
+	//多态
+	admin := admin{"Lisa", "lisa@gmail.com"}
+	sendNotification(&admin)
 }
