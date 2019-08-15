@@ -40,11 +40,11 @@ type notifier interface {
 
 //定义接口的实现
 func (u *user) notify() {
-	fmt.Printf("sending email %s<%s>", u.name, u.email)
+	fmt.Printf("sending email %s<%s> \n", u.name, u.email)
 }
 
 func (a *admin) notify() {
-	fmt.Printf("sending admin email %s<%s>", a.name, a.email)
+	fmt.Printf("sending admin email %s<%s> \n", a.name, a.email)
 }
 
 //sendNotification 接受一个实现了notifier 接口的值并发送通知
@@ -56,9 +56,9 @@ func sendNotification(n notifier) {
 //例
 func init() {
 	u := user{"Bill", "bill@gmail.com"}
-	sendNotification(&u)
+	sendNotification(&u) //sending email Bill<bill@gmail.com>
 
 	//多态
 	admin := admin{"Lisa", "lisa@gmail.com"}
-	sendNotification(&admin)
+	sendNotification(&admin) //sending admin email Lisa<lisa@gmail.com>
 }
