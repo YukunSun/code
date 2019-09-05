@@ -25,7 +25,7 @@ func increaseCounter(i int) {
 	defer wg.Done()
 	for i := 0; i < 2; i++ {
 		value := i
-		//类比 java 的 Thread.join()
+		//退出当前 goroutine，给其他 goroutine 执行的机会。类比 java 的 Thread.join()
 		runtime.Gosched()
 		value++
 		counter = value
