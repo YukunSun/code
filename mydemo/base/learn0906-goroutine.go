@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	//声明一个共享资源，供多个 groutine 同时读写
+	//声明一个共享资源，供多个 goroutine 同时读写
 	counter int
 	wg      sync.WaitGroup
 )
