@@ -1,5 +1,5 @@
 package main
-
+//演示 AddInt64 等原子函数
 import (
 	"fmt"
 	"runtime"
