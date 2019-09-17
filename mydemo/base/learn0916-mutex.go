@@ -26,13 +26,13 @@ func incCounter() {
 	defer wg.Done()
 	for i := 0; i < 2; i++ {
 		mutex.Lock()
-		{
-			value := counter
-			//退出当前 goroutine，给其他 goroutine 执行的机会。类比 java 的 Thread.join()
-			runtime.Gosched()
-			value++
-			counter = value
-		}
+
+		value := counter
+		//退出当前 goroutine，给其他 goroutine 执行的机会。类比 java 的 Thread.join()
+		runtime.Gosched()
+		value++
+		counter = value
+
 		mutex.Unlock()
 	}
 }
