@@ -36,6 +36,7 @@ func init() {
 	fmt.Println(slice3) //[]
 }
 
+//对slice进行赋值
 func init() {
 	slice := []int{10, 20, 30, 40, 50}
 	//len=2,cap=4，因为 newSlice 与 slice 共享一个底层数组
@@ -46,4 +47,23 @@ func init() {
 	//因为是共享底层数组，所以一旦修改，则会影响到别的值
 	newSlice[1] = 2
 	fmt.Println(slice) //[10 20 2 40 50]
+}
+
+//切片的扩容
+func init() {
+	slice := []int{1, 2, 3, 4}
+	newSlice := slice[1:3]
+
+	fmt.Println("slice：", slice)
+	fmt.Println("newSlice：", newSlice)
+
+	//如果容量还够的话，就继续追加
+	newSlice = append(newSlice, 6)
+	fmt.Println("slice after append 6:", slice)
+	fmt.Println("newSlice after append 6:", newSlice)
+
+	//如果容量不够，就创建一个全新的切片，但是容量是原来的两倍（1000个元素之内是扩大一倍，大于1000则是增加25%，这种增长算法可能会改变）
+	newSlice = append(newSlice, 7)
+	fmt.Println("slice after append 7:", slice)
+	fmt.Println("newSlice after append 7:", newSlice)
 }
